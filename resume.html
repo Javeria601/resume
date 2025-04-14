@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{ data.name }} - Resume</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f4f4f4;
+            padding: 40px;
+            color: #333;
+        }
+        .container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: auto;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 { font-size: 2em; margin-bottom: 5px; }
+        h2 {
+            font-size: 1.5em;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 5px;
+            margin-top: 30px;
+            color: #444;
+        }
+        .contact p, .section p { margin: 5px 0; }
+        .job, .education-item { margin-bottom: 20px; }
+        ul { padding-left: 20px; margin-top: 5px; }
+        .skill-badge {
+            display: inline-block;
+            background: #007bff;
+            color: white;
+            padding: 5px 10px;
+            margin: 4px 4px 4px 0;
+            border-radius: 5px;
+            font-size: 0.9em;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .contact-links a {
+            color: #007bff;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+        .contact-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>{{ data.name }}</h1>
+            <p><strong>{{ data.title }}</strong></p>
+        </div>
+
+        <div class="contact section">
+            <h2>Contact</h2>
+            <p>Email: <a href="mailto:{{ data.contact.email }}">{{ data.contact.email }}</a></p>
+            <p>Phone: {{ data.contact.phone }}</p>
+            <div class="contact-links">
+                <a href="https://{{ data.contact.linkedin }}" target="_blank">LinkedIn</a>
+                <a href="https://{{ data.contact.github }}" target="_blank">GitHub</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Summary</h2>
+            <p>{{ data.summary }}</p>
+        </div>
+
+        <div class="section">
+            <h2>Skills</h2>
+            {% for skill in data.skills %}
+                <span class="skill-badge">{{ skill }}</span>
+            {% endfor %}
+        </div>
+
+        <div class="section">
+            <h2>Experience</h2>
+            {% for job in data.experience %}
+                <div class="job">
+                    <h3>{{ job.role }} – {{ job.company }}</h3>
+                    <p><em>{{ job.duration }}</em></p>
+                    <ul>
+                        {% for detail in job.details %}
+                            <li>{{ detail }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="section">
+            <h2>Education</h2>
+            {% for edu in data.education %}
+                <div class="education-item">
+                    <p><strong>{{ edu.degree }}</strong></p>
+                    <p>{{ edu.school }} ({{ edu.year }})</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

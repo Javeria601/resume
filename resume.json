@@ -1,0 +1,40 @@
+{
+    "name": "John Doe",
+    "title": "Software Engineer",
+    "contact": {
+      "email": "johndoe@example.com",
+      "phone": "+1-234-567-890",
+      "linkedin": "linkedin.com/in/johndoe",
+      "github": "github.com/johndoe"
+    },
+    "summary": "Experienced software engineer with a focus on backend development and API design.",
+    "skills": ["Python", "Flask", "SQL", "Docker", "REST APIs"],
+    "experience": [
+      {
+        "role": "Backend Developer",
+        "company": "Tech Solutions Inc.",
+        "duration": "Jan 2021 - Present",
+        "details": [
+          "Developed RESTful APIs using Flask and PostgreSQL.",
+          "Integrated third-party APIs and improved system performance by 30%."
+        ]
+      },
+      {
+        "role": "Software Engineer Intern",
+        "company": "Innovate Labs",
+        "duration": "Jun 2020 - Dec 2020",
+        "details": [
+          "Worked on bug fixes and feature improvements in a Django web app.",
+          "Wrote unit tests to increase code coverage by 20%."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.Sc. in Computer Science",
+        "school": "State University",
+        "year": "2020"
+      }
+    ]
+  }
+  
